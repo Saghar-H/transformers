@@ -321,7 +321,7 @@ def main():
             metric_key_prefix="val", max_length=data_args.val_max_target_length, num_beams=data_args.eval_beams
         )
         metrics["val_n_objs"] = data_args.n_val
-        metrics["val_loss"] = round(metrics["val_loss"], 4)
+        metrics["val_loss"] = round(metrics["val_loss"], 4) 
 
         if trainer.is_world_process_zero():
 
@@ -335,7 +335,7 @@ def main():
             test_dataset=test_dataset,
             metric_key_prefix="test",
             max_length=data_args.val_max_target_length,
-            num_beams=data_args.eval_beams,
+            num_beams=data_args.v,
         )
         metrics = test_output.metrics
         metrics["test_n_objs"] = data_args.n_test
